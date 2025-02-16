@@ -1,0 +1,10 @@
+<!ELEMENT card (university, info)>
+<!ELEMENT info (name, faculty, serial, issued, valid, group, rector)>
+<!ELEMENT university (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT faculty (#PCDATA)>
+<!ELEMENT serial (#PCDATA)>
+<!ELEMENT issued (#PCDATA)>
+<!ELEMENT valid (#PCDATA)>
+<!ELEMENT group (#PCDATA)>
+<!ELEMENT rector (#PCDATA)>

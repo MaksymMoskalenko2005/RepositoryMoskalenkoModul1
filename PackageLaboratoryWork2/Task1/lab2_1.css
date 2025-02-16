@@ -1,0 +1,48 @@
+card {
+    display: block;
+    width: 400px;
+    height: 250px;
+    background: url('university_logo.png') no-repeat center center;
+    background-size: contain;
+    border-radius: 10px;
+    padding: 15px;
+    font-family: Arial, sans-serif;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    color: #000;
+    position: relative;
+}
+name{
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+}
+university {
+    display: block;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+info {
+    display: block;
+    font-size: 14px;
+    line-height: 1.4;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+info serial,
+info issued,
+info valid,
+info faculty,
+info group,
+info rector {
+    display: block;
+    margin-bottom: 5px;
+}

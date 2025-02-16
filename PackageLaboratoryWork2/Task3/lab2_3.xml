@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE card SYSTEM "lab2_3.dtd">
+<?xml-stylesheet type="text/css" href="lab2_3.css"?>
+<card>
+    <university>Київський авіаційний інститут</university>
+    <info>
+        <name>Москаленко Максим Андрійович</name>
+        <faculty>Факультет комп'ютерних наук та технологій</faculty>
+        <serial>Серія, номер: КВ12345678</serial>
+        <issued>Виданий: 01.09.2022</issued>
+        <valid>Дійсний до: 31.08.2026</valid>
+        <group>Група: Б-121-22-1-ПІ</group>
+        <rector>Ректор: Ксенія Семенова</rector>
+
+    </info>
+</card>
