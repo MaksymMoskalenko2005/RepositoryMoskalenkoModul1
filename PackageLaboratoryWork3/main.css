@@ -1,0 +1,44 @@
+body {
+    background-color: aliceblue;
+}
+
+.center {
+    text-align: center;
+    margin: auto;
+}
+
+#keyboard {
+    text-align: center;
+    margin: auto;
+    border: 2px solid;
+}
+
+/* Кнопки вибору діапазону */
+input[value="0-10"] { background-color: lightcoral; }
+input[value="0-20"] { background-color: lightseagreen; }
+input[value="0-28"] { background-color: lightgoldenrodyellow; }
+input[value="0-100"] { background-color: lightskyblue; }
+
+/* Кнопки операцій */
+input[value="+"] { background-color: lightgreen; }
+input[value="-"] { background-color: lightsalmon; }
+input[value="*"] { background-color: lightpink; }
+
+/* Кнопки чисел */
+#keyboard input[type="button"] {
+    background-color: rgb(182, 64, 97);
+}
+
+#keyboard input[type="button"]:hover {
+    background-color: rgb(137, 64, 97);
+}
+
+/* Кнопка генерації виразу */
+input[value="?"] {
+    background-color: orange;
+}
+
+/* Кнопка перевірки */
+input[value="OK"] {
+    background-color: lightblue;
+}

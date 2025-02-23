@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Перевірка усного рахунку</title>
+    <link rel="stylesheet" href="main.css" />
+</head>
+
+<style>
+    body {
+        background-color: aliceblue;
+    }
+
+    .center {
+        text-align: center;
+        margin: auto;
+    }
+
+    #keyboard {
+        text-align: center;
+        margin: auto;
+        border: 2px solid;
+    }
+</style>
+<script>
+    var max_value, operand1 = 0, operand2 = 0, result = 0;
+    var flag = 0, sign = "+", input = "";
+    
+    function set_sign(x) {
+        if (x == "+") flag = 0;
+        if (x == "-") flag = 1;
+        if (x == "*") flag = 2;
+        sign = x;
+    }
+    
+    function f_operand() {
+        return operand1 = Math.floor(Math.random() * max_value);
+    }
+    
+    function s_operand() {
+        if (flag == 0) operand2 = Math.floor(Math.random() * (max_value - operand1));
+        else if (flag == 1) operand2 = Math.floor(Math.random() * operand1);
+        else operand2 = Math.floor(Math.random() * max_value);
+        return operand2;
+    }
+    
+    function input_sign(x) {
+        if (x == 10) {
+            var correct = false;
+            if (flag == 0) correct = (operand1 + operand2 == parseInt(input));
+            else if (flag == 1) correct = (operand1 - operand2 == parseInt(input));
+            else if (flag == 2) correct = (operand1 * operand2 == parseInt(input));
+            
+            document.forms["test"].r0.value = correct ? "Вірно!" : "Спробуй ще!";
+            if (!correct) input = "";
+            return;
+        }
+        input += x;
+        document.forms["test"].result.value = input;
+    }
+    
+    function main_calc() {
+        operand1 = f_operand();
+        document.forms["test"].op1.value = operand1;
+        operand2 = s_operand();
+        document.forms["test"].op2.value = operand2;
+        document.forms["test"].s_sign.value = sign;
+        input = "";
+        document.forms["test"].result.value = "";
+        document.forms["test"].r0.value = "???";
+    }
+</script>
+</head>
+
+<body>
+    <h1 class="center">Математичний тест</h1>
+    <hr />
+    <form name="test">
+        <table class="center">
+            <tr>
+                <td><input type="button" value="0-10" onClick="max_value=10"></td>
+                <td><input type="button" value="0-20" onClick="max_value=20"></td>
+                <td><input type="button" value="0-28" onClick="max_value=28"></td>
+                <td><input type="button" value="0-100" onClick="max_value=100"></td>
+                <td><input type="button" value="+" onClick='set_sign("+")'></td>
+                <td><input type="button" value="-" onClick='set_sign("-")'></td>
+                <td><input type="button" value="*" onClick='set_sign("*")'></td>
+            </tr>
+        </table>
+        <hr>
+        <table class="center">
+            <tr>
+                <td><input id="op1" size="3"></td>
+                <td><input id="s_sign" size="1"></td>
+                <td><input id="op2" size="3"></td>
+                <td>=</td>
+                <td><input id="result" size="4"></td>
+                <td><input type="button" value="?" onClick="main_calc()"></td>
+                <td><input id="r0" value="???"></td>
+            </tr>
+        </table>
+        <hr />
+        <table id="keyboard">
+            <tr>
+                <td><input type="button" value="1" onClick='input_sign("1")'></td>
+                <td><input type="button" value="2" onClick='input_sign("2")'></td>
+                <td><input type="button" value="3" onClick='input_sign("3")'></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" onClick='input_sign("4")'></td>
+                <td><input type="button" value="5" onClick='input_sign("5")'></td>
+                <td><input type="button" value="6" onClick='input_sign("6")'></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" onClick='input_sign("7")'></td>
+                <td><input type="button" value="8" onClick='input_sign("8")'></td>
+                <td><input type="button" value="9" onClick='input_sign("9")'></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="0" onClick='input_sign("0")'></td>
+                <td colspan="2"><input type="button" value="OK" onClick='input_sign("10")'></td>
+            </tr>
+        </table>
+    </form>
+    <hr />
+</body>
+
+</html>
