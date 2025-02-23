@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xf="http://www.w3.org/2002/xforms"
+      xmlns:ev="http://www.w3.org/2001/xml-events">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Залікова книжка студента</title>
+    <!-- Підключення XSLTForms -->
+    <script type="text/javascript" src="xsltforms.js"></script>
+    <style>
+        body {
+            background-image: url('university_logo.png');
+            background-size: 60%;
+            background-repeat: no-repeat;
+            background-position: top;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .xf-input {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .xf-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .xf-submit {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .xf-submit:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Залікова книжка студента</h1>
+        <!-- Модель даних XForms -->
+        <xf:model xmlns="">
+            <xf:instance>
+                <data>
+                    <fullName/>
+                    <studentId/>
+                    <faculty/>
+                    <specialty/>
+                    <course/>
+                    <group/>
+                    <subject/>
+                    <grade/>
+                    <date/>
+                </data>
+            </xf:instance>
+            <!-- Валідація -->
+            <xf:bind nodeset="fullName" required="true()"/>
+            <xf:bind nodeset="studentId" required="true()"/>
+            <xf:bind nodeset="faculty" required="true()"/>
+            <xf:bind nodeset="specialty" required="true()"/>
+            <xf:bind nodeset="course" required="true()" type="xf:integer"/>
+            <xf:bind nodeset="group" required="true()"/>
+            <xf:bind nodeset="subject" required="true()"/>
+            <xf:bind nodeset="grade" required="true()" type="xf:integer"/>
+            <xf:bind nodeset="date" required="true()" type="xf:date"/>
+        </xf:model>
+
+        <!-- Форма -->
+        <xf:input ref="fullName" class="xf-input">
+            <xf:label class="xf-label">ПІБ студента:</xf:label>
+        </xf:input>
+        <xf:input ref="studentId" class="xf-input">
+            <xf:label class="xf-label">Номер залікової книжки:</xf:label>
+        </xf:input>
+        <xf:input ref="faculty" class="xf-input">
+            <xf:label class="xf-label">Факультет:</xf:label>
+        </xf:input>
+        <xf:input ref="specialty" class="xf-input">
+            <xf:label class="xf-label">Спеціальність:</xf:label>
+        </xf:input>
+        <xf:input ref="course" class="xf-input">
+            <xf:label class="xf-label">Курс:</xf:label>
+        </xf:input>
+        <xf:input ref="group" class="xf-input">
+            <xf:label class="xf-label">Група:</xf:label>
+        </xf:input>
+
+        <h2>Оцінки</h2>
+        <xf:input ref="subject" class="xf-input">
+            <xf:label class="xf-label">Предмет:</xf:label>
+        </xf:input>
+        <xf:input ref="grade" class="xf-input">
+            <xf:label class="xf-label">Оцінка:</xf:label>
+        </xf:input>
+        <xf:input ref="date" class="xf-input">
+            <xf:label class="xf-label">Дата:</xf:label>
+        </xf:input>
+
+        <!-- Кнопка збереження -->
+        <xf:submit submission="saveData" class="xf-submit">
+            <xf:label>Зберегти</xf:label>
+        </xf:submit>
+    </div>
+</body>
+</html>
